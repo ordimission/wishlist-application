@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="wish">
+            <h2><span jhiTranslate="wishListApplicationApp.wish.detail.title">Wish</span> {{wish.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wishListApplicationApp.wish.description" [ngbTooltip]="'wishListApplicationApp.wish.help.description' | translate">Description</span></dt>
+                <dd>
+                    <span>{{wish.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.wish.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{wish.unitPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.wish.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{wish.quantity}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.wish.unit">Unit</span></dt>
+                <dd>
+                    <span>{{wish.unit}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.wish.model">Model</span></dt>
+                <dd>
+                    <span>{{wish.model}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.wish.brand">Brand</span></dt>
+                <dd>
+                    <span>{{wish.brand}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.wish.wishList">Wish List</span></dt>
+                <dd>
+                    <div *ngIf="wish.wishList">
+                        <a [routerLink]="['/wish-list', wish.wishList?.id, 'view']">{{wish.wishList?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/wish', wish.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

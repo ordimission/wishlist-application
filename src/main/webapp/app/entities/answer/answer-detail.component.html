@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="answer">
+            <h2><span jhiTranslate="wishListApplicationApp.answer.detail.title">Answer</span> {{answer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wishListApplicationApp.answer.quantity" [ngbTooltip]="'wishListApplicationApp.answer.help.quantity' | translate">Quantity</span></dt>
+                <dd>
+                    <span>{{answer.quantity}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.answer.unit">Unit</span></dt>
+                <dd>
+                    <span>{{answer.unit}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.answer.model">Model</span></dt>
+                <dd>
+                    <span>{{answer.model}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.answer.brand">Brand</span></dt>
+                <dd>
+                    <span>{{answer.brand}}</span>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.answer.answerList">Answer List</span></dt>
+                <dd>
+                    <div *ngIf="answer.answerList">
+                        <a [routerLink]="['/answer-list', answer.answerList?.id, 'view']">{{answer.answerList?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.answer.wish">Wish</span></dt>
+                <dd>
+                    <div *ngIf="answer.wish">
+                        <a [routerLink]="['/wish', answer.wish?.id, 'view']">{{answer.wish?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/answer', answer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
