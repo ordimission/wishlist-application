@@ -1,0 +1,46 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "WishListApplication",
+    "packageName": "org.ordimission.wishlist.application",
+    "packageFolder": "org/ordimission/wishlist/application",
+    "serverPort": 8080,
+    "serviceDiscoveryType": "eureka",
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "enableSwaggerCodegen": "true",
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling"
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "6.2.0",
+    "jwtSecretKey": "NmFjNmI0MTRlMmMyNzBkODRiMDgxYjVjZmExYzIzYjc3MDRlNTcyOGY4Y2JjZDAxMTIyYzZhMDM0MzIzMDBiMzNkYTQ5NDRmODA4MGZkYzhiNjk3ZTZjMDE3MzE3ZDkxMTk3MGM5NzExNGY1NDFmYTIyYjFhZjk0M2QxZmQ0ODg=",
+    "clientTheme": "none",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "blueprints": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "ordimission",
+  "repository-name": "wishlist-application"
+}
