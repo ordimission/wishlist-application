@@ -1,0 +1,53 @@
+entity WishList {
+    description String
+}
+
+entity Wish {
+    /** user User */
+	description String
+	unitPrice Double
+	quantity Integer
+	unit String
+	model String 
+	brand String
+}
+
+entity AnswerList {
+}
+
+entity Answer {
+	/** user User */
+	quantity Integer
+	unit String
+	model String 
+	brand String
+}
+
+
+
+relationship OneToOne {
+	Wish{wishList} to WishList
+}
+
+relationship OneToOne {
+	Answer{answerList} to AnswerList
+}
+
+relationship OneToOne {
+	Answer{wish} to Wish
+}
+
+
+// Set pagination options
+paginate WishList, Wish, AnswerList, Answer with infinite-scroll
+//paginate Answer, AnswerList with pagination
+
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
