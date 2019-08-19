@@ -1,0 +1,49 @@
+{
+    "name": "Answer",
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "javadoc": "user User",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "brand",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "answerList",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "answerList",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "wish",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "wish",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190819124702",
+    "entityTableName": "answer",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

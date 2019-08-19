@@ -1,0 +1,22 @@
+{
+  "wishListApplicationApp": {
+    "answerList": {
+      "home": {
+        "title": "AnswerLists",
+        "createLabel": "Créer un nouveau Answer List",
+        "createOrEditLabel": "Créer ou éditer un Answer List",
+        "search": "Recherche pour Answer List",
+        "notFound": "Aucun Answer List trouvé"
+      },
+      "created": "Un nouveau Answer List a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Answer List avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Answer List avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Answer List {{ id }} ?"
+      },
+      "detail": {
+        "title": "Answer List"
+      }
+    }
+  }
+}

@@ -46,6 +46,10 @@ public class CacheConfiguration {
             createCache(cm, org.ordimission.wishlist.application.domain.User.class.getName());
             createCache(cm, org.ordimission.wishlist.application.domain.Authority.class.getName());
             createCache(cm, org.ordimission.wishlist.application.domain.User.class.getName() + ".authorities");
+            createCache(cm, org.ordimission.wishlist.application.domain.WishList.class.getName());
+            createCache(cm, org.ordimission.wishlist.application.domain.Wish.class.getName());
+            createCache(cm, org.ordimission.wishlist.application.domain.AnswerList.class.getName());
+            createCache(cm, org.ordimission.wishlist.application.domain.Answer.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

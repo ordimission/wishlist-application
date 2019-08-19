@@ -1,0 +1,14 @@
+{
+    "name": "AnswerList",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20190819124701",
+    "entityTableName": "answer_list",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
