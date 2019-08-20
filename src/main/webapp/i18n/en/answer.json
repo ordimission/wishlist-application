@@ -23,9 +23,7 @@
       "brand": "Brand",
       "answerList": "Answer List",
       "wish": "Wish",
-      "help": {
-        "quantity": "user User"
-      }
+      "user": "User"
     }
   }
 }

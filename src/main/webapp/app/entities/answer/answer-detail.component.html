@@ -5,7 +5,7 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="wishListApplicationApp.answer.quantity" [ngbTooltip]="'wishListApplicationApp.answer.help.quantity' | translate">Quantity</span></dt>
+                <dt><span jhiTranslate="wishListApplicationApp.answer.quantity">Quantity</span></dt>
                 <dd>
                     <span>{{answer.quantity}}</span>
                 </dd>
@@ -32,6 +32,10 @@
                     <div *ngIf="answer.wish">
                         <a [routerLink]="['/wish', answer.wish?.id, 'view']">{{answer.wish?.id}}</a>
                     </div>
+                </dd>
+                <dt><span jhiTranslate="wishListApplicationApp.answer.user">User</span></dt>
+                <dd>
+                    {{answer.user?.id}}
                 </dd>
             </dl>
 

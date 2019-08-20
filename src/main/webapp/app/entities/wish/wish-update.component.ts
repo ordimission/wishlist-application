@@ -9,6 +9,7 @@ import { IWish, Wish } from 'app/shared/model/wish.model';
 import { WishService } from './wish.service';
 import { IWishList } from 'app/shared/model/wish-list.model';
 import { WishListService } from 'app/entities/wish-list';
+import { IUser, UserService } from 'app/core';
 
 @Component({
   selector: 'jhi-wish-update',
@@ -19,6 +20,8 @@ export class WishUpdateComponent implements OnInit {
 
   wishlists: IWishList[];
 
+  users: IUser[];
+
   editForm = this.fb.group({
     id: [],
     description: [],
@@ -27,13 +30,15 @@ export class WishUpdateComponent implements OnInit {
     unit: [],
     model: [],
     brand: [],
-    wishList: []
+    wishList: [],
+    user: []
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected wishService: WishService,
     protected wishListService: WishListService,
+    protected userService: UserService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -68,6 +73,13 @@ export class WishUpdateComponent implements OnInit {
         },
         (res: HttpErrorResponse) => this.onError(res.message)
       );
+    this.userService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
+        map((response: HttpResponse<IUser[]>) => response.body)
+      )
+      .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(wish: IWish) {
@@ -79,7 +91,8 @@ export class WishUpdateComponent implements OnInit {
       unit: wish.unit,
       model: wish.model,
       brand: wish.brand,
-      wishList: wish.wishList
+      wishList: wish.wishList,
+      user: wish.user
     });
   }
 
@@ -107,7 +120,8 @@ export class WishUpdateComponent implements OnInit {
       unit: this.editForm.get(['unit']).value,
       model: this.editForm.get(['model']).value,
       brand: this.editForm.get(['brand']).value,
-      wishList: this.editForm.get(['wishList']).value
+      wishList: this.editForm.get(['wishList']).value,
+      user: this.editForm.get(['user']).value
     };
   }
 
@@ -128,6 +142,10 @@ export class WishUpdateComponent implements OnInit {
   }
 
   trackWishListById(index: number, item: IWishList) {
+    return item.id;
+  }
+
+  trackUserById(index: number, item: IUser) {
     return item.id;
   }
 }

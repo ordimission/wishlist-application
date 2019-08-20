@@ -3,7 +3,6 @@ entity WishList {
 }
 
 entity Wish {
-    /** user User */
 	description String
 	unitPrice Double
 	quantity Integer
@@ -16,7 +15,6 @@ entity AnswerList {
 }
 
 entity Answer {
-	/** user User */
 	quantity Integer
 	unit String
 	model String 
@@ -27,6 +25,7 @@ entity Answer {
 
 relationship OneToOne {
 	Wish{wishList} to WishList
+    Wish{user} to User
 }
 
 relationship OneToOne {
@@ -35,6 +34,7 @@ relationship OneToOne {
 
 relationship OneToOne {
 	Answer{wish} to Wish
+    Answer{user} to User
 }
 
 
