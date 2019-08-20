@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="wish_list"/>
 
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="wish"
+                                 constraintName="fk_wish_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
     </changeSet>
 </databaseChangeLog>

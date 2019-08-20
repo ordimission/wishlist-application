@@ -3,7 +3,6 @@
     "fields": [
         {
             "fieldName": "quantity",
-            "javadoc": "user User",
             "fieldType": "Integer"
         },
         {
@@ -33,6 +32,14 @@
             "otherEntityName": "wish",
             "otherEntityRelationshipName": "answer",
             "relationshipName": "wish",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "user",
             "otherEntityField": "id",
             "ownerSide": true
         }

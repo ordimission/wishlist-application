@@ -24,9 +24,7 @@
       "model": "Model",
       "brand": "Brand",
       "wishList": "Wish List",
-      "help": {
-        "description": "user User"
-      }
+      "user": "User"
     }
   }
 }

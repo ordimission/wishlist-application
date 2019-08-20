@@ -10,7 +10,7 @@
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="wishListApplicationApp.wish.description" for="field_description" [ngbTooltip]="'wishListApplicationApp.wish.help.description' | translate">Description</label>
+                    <label class="form-control-label" jhiTranslate="wishListApplicationApp.wish.description" for="field_description">Description</label>
                     <input type="text" class="form-control" name="description" id="field_description"
                            formControlName="description"/>
                 </div>
@@ -45,6 +45,13 @@
                     <select class="form-control" id="field_wishList" name="wishList" formControlName="wishList">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="wishListOption.id === editForm.get('wishList').value?.id ? editForm.get('wishList').value : wishListOption" *ngFor="let wishListOption of wishlists; trackBy: trackWishListById">{{wishListOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wishListApplicationApp.wish.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user').value?.id ? editForm.get('user').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
                     </select>
                 </div>
             </div>

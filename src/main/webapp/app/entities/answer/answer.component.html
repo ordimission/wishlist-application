@@ -39,6 +39,7 @@
             <th jhiSortBy="brand"><span jhiTranslate="wishListApplicationApp.answer.brand">Brand</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="answerList.id"><span jhiTranslate="wishListApplicationApp.answer.answerList">Answer List</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="wish.id"><span jhiTranslate="wishListApplicationApp.answer.wish">Wish</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.id"><span jhiTranslate="wishListApplicationApp.answer.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -58,6 +59,9 @@
                     <div *ngIf="answer.wish">
                         <a [routerLink]="['/wish', answer.wish?.id, 'view' ]" >{{answer.wish?.id}}</a>
                     </div>
+                </td>
+                <td>
+                    {{answer.user?.id}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group">

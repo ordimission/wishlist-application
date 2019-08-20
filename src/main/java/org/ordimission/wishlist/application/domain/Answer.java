@@ -1,5 +1,4 @@
 package org.ordimission.wishlist.application.domain;
-import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -24,10 +23,6 @@ public class Answer implements Serializable {
     @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.Keyword)
     private Long id;
 
-    /**
-     * user User
-     */
-    @ApiModelProperty(value = "user User")
     @Column(name = "quantity")
     private Integer quantity;
 
@@ -47,6 +42,10 @@ public class Answer implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private Wish wish;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -133,6 +132,19 @@ public class Answer implements Serializable {
 
     public void setWish(Wish wish) {
         this.wish = wish;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Answer user(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -3,7 +3,6 @@
     "fields": [
         {
             "fieldName": "description",
-            "javadoc": "user User",
             "fieldType": "String"
         },
         {
@@ -33,6 +32,14 @@
             "otherEntityName": "wishList",
             "otherEntityRelationshipName": "wish",
             "relationshipName": "wishList",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "wish",
+            "relationshipName": "user",
             "otherEntityField": "id",
             "ownerSide": true
         }

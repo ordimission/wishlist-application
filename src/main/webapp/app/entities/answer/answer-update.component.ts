@@ -11,6 +11,7 @@ import { IAnswerList } from 'app/shared/model/answer-list.model';
 import { AnswerListService } from 'app/entities/answer-list';
 import { IWish } from 'app/shared/model/wish.model';
 import { WishService } from 'app/entities/wish';
+import { IUser, UserService } from 'app/core';
 
 @Component({
   selector: 'jhi-answer-update',
@@ -23,6 +24,8 @@ export class AnswerUpdateComponent implements OnInit {
 
   wishes: IWish[];
 
+  users: IUser[];
+
   editForm = this.fb.group({
     id: [],
     quantity: [],
@@ -30,7 +33,8 @@ export class AnswerUpdateComponent implements OnInit {
     model: [],
     brand: [],
     answerList: [],
-    wish: []
+    wish: [],
+    user: []
   });
 
   constructor(
@@ -38,6 +42,7 @@ export class AnswerUpdateComponent implements OnInit {
     protected answerService: AnswerService,
     protected answerListService: AnswerListService,
     protected wishService: WishService,
+    protected userService: UserService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -97,6 +102,13 @@ export class AnswerUpdateComponent implements OnInit {
         },
         (res: HttpErrorResponse) => this.onError(res.message)
       );
+    this.userService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
+        map((response: HttpResponse<IUser[]>) => response.body)
+      )
+      .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(answer: IAnswer) {
@@ -107,7 +119,8 @@ export class AnswerUpdateComponent implements OnInit {
       model: answer.model,
       brand: answer.brand,
       answerList: answer.answerList,
-      wish: answer.wish
+      wish: answer.wish,
+      user: answer.user
     });
   }
 
@@ -134,7 +147,8 @@ export class AnswerUpdateComponent implements OnInit {
       model: this.editForm.get(['model']).value,
       brand: this.editForm.get(['brand']).value,
       answerList: this.editForm.get(['answerList']).value,
-      wish: this.editForm.get(['wish']).value
+      wish: this.editForm.get(['wish']).value,
+      user: this.editForm.get(['user']).value
     };
   }
 
@@ -159,6 +173,10 @@ export class AnswerUpdateComponent implements OnInit {
   }
 
   trackWishById(index: number, item: IWish) {
+    return item.id;
+  }
+
+  trackUserById(index: number, item: IUser) {
     return item.id;
   }
 }

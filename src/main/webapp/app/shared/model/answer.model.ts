@@ -1,5 +1,6 @@
 import { IAnswerList } from 'app/shared/model/answer-list.model';
 import { IWish } from 'app/shared/model/wish.model';
+import { IUser } from 'app/core/user/user.model';
 
 export interface IAnswer {
   id?: number;
@@ -9,6 +10,7 @@ export interface IAnswer {
   brand?: string;
   answerList?: IAnswerList;
   wish?: IWish;
+  user?: IUser;
 }
 
 export class Answer implements IAnswer {
@@ -19,6 +21,7 @@ export class Answer implements IAnswer {
     public model?: string,
     public brand?: string,
     public answerList?: IAnswerList,
-    public wish?: IWish
+    public wish?: IWish,
+    public user?: IUser
   ) {}
 }

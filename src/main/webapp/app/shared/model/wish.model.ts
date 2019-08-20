@@ -1,4 +1,5 @@
 import { IWishList } from 'app/shared/model/wish-list.model';
+import { IUser } from 'app/core/user/user.model';
 
 export interface IWish {
   id?: number;
@@ -9,6 +10,7 @@ export interface IWish {
   model?: string;
   brand?: string;
   wishList?: IWishList;
+  user?: IUser;
 }
 
 export class Wish implements IWish {
@@ -20,6 +22,7 @@ export class Wish implements IWish {
     public unit?: string,
     public model?: string,
     public brand?: string,
-    public wishList?: IWishList
+    public wishList?: IWishList,
+    public user?: IUser
   ) {}
 }
